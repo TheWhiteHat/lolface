@@ -91,6 +91,7 @@ function view_footer(){
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/lolface.js"></script>
   </body>
 </html>
    <?php
@@ -121,8 +122,15 @@ function view_landing(){
             <p class="lead">
               <a href="#" class="btn btn-lg btn-default">Register</a>
               or
-              <a href="#" class="btn btn-lg btn-default">Login</a>
+              <a id="logintoggle" class="btn btn-lg btn-default">Login</a>
             </p>
+            <div style="display:none;" id="loginform">
+            <form method="POST" action="login.php">
+               <input type="text" name="username">
+               <input type="password" name="password">
+               <input type="submit" value="login">
+            </form>
+            </div>
           </div>
         </div>
       </div>

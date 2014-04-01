@@ -1,8 +1,13 @@
 <?php
 require_once("view.php");
 
-view_header("chicken");
-view_landing();
-view_footer();
+if (!isset($_SESSION["auth"])){
+   view_header("LolFace");
+   view_landing();
+   view_footer();
+}
+else {
+   http_redirect("home.php");
+}
 
 ?>

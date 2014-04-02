@@ -125,12 +125,26 @@ function view_landing(){
               <a id="logintoggle" class="btn btn-lg btn-default">Login</a>
             </p>
             <div style="display:none;" id="loginform">
-            <form method="POST" action="login.php">
-               <input type="text" name="username">
-               <input type="password" name="password">
-               <input type="submit" value="login">
+            <form method="POST" action="login.php" class="form-inline">
+               <div class="form-group">
+                  <input type="text" name="username">
+               </div>
+               <div class="form-group">
+                  <input type="password" name="password">
+               </div>
+               <input type="submit" value="login" class="btn btn-default">
+               </div>
             </form>
             </div>
+
+            <div style="display:none;" id="registerform">
+            <form method="POST" action="register.php">
+               <input type="text" name="username">
+               <input type="password" name="password">
+               <input type="submit" value="register">
+            </form>
+            </div>
+
           </div>
         </div>
       </div>

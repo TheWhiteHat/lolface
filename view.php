@@ -35,25 +35,12 @@ function view_nav($username){
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/about.php">About</a></li>
-            <!--
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-         -->
         </div><!--/.nav-collapse -->
       </div>
     </div>
    <div class="container">
+   <p class="bg-success"><?php echo isset($_SESSION["successmsg"]) ? $_SESSION["successmsg"] : '' ;?></p>
+   <p class="bg-danger"><?php echo isset($_SESSION["errormsg"]) ? $_SESSION["errormsg"] : '' ;?></p>
    <div class="row">
    <div class="col-sm-3">
       <h2><?php echo $username; ?></h2>
@@ -95,6 +82,8 @@ function view_footer(){
   </body>
 </html>
    <?php
+   unset($_SESSION["errormsg"]);
+   unset($_SESSION["successmsg"]);
 }
 
 function view_post($username, $message){
@@ -119,18 +108,21 @@ function view_landing(){
           <div class="inner cover">
             <h1 class="cover-heading">LolFace.</h1>
             <p class="lead">Connect with the people that matter to you the most. LolFace is a <strong>robust</strong> platform that expedites <strong>cutting-edge</strong> interaction between users. With a <strong>throughput-focused</strong> architecture, LolFace has re-engineered the <strong>flexibility</strong> of <strong>human communication</strong>.</p>
+            <p class="bg-success" style="color:#222;font-size:18px;"><?php echo isset($_SESSION["successmsg"]) ? $_SESSION["successmsg"] : '' ;?></p>
+            <p class="bg-danger" style="color:#222;font-size:18px;"><?php echo isset($_SESSION["errormsg"]) ? $_SESSION["errormsg"] : '' ;?></p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Register</a>
+              <a id="registertoggle" class="btn btn-lg btn-default">Register</a>
               or
               <a id="logintoggle" class="btn btn-lg btn-default">Login</a>
             </p>
+
             <div style="display:none;" id="loginform">
             <form method="POST" action="login.php" class="form-inline">
                <div class="form-group">
-                  <input type="text" name="username">
+                  <input type="text" name="username" class="form-control" placeholder="username">
                </div>
                <div class="form-group">
-                  <input type="password" name="password">
+                  <input type="password" name="password" class="form-control" placeholder="password">
                </div>
                <input type="submit" value="login" class="btn btn-default">
                </div>
@@ -138,10 +130,15 @@ function view_landing(){
             </div>
 
             <div style="display:none;" id="registerform">
-            <form method="POST" action="register.php">
-               <input type="text" name="username">
-               <input type="password" name="password">
-               <input type="submit" value="register">
+            <form method="POST" action="register.php" class="form-inline">
+               <div class="form-group">
+                  <input type="text" name="username" class="form-control" placeholder="username">
+               </div>
+               <div class="form-group">
+                  <input type="password" name="password" class="form-control" placeholder="password">
+               </div>
+               <input type="submit" value="register" class="btn btn-default">
+               </div>
             </form>
             </div>
 

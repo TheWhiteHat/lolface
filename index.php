@@ -1,13 +1,13 @@
 <?php
 require_once("view.php");
 
-if (!isset($_SESSION["auth"])){
+if (!isset($_SESSION["auth"]) || $_SESSION["auth"] == false){
    view_header("LolFace");
    view_landing();
    view_footer();
 }
 else {
-   http_redirect("home.php");
+   header("Location: /home.php");
 }
 
 ?>

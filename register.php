@@ -17,8 +17,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          $_SESSION["errormsg"] = "Unable to register!";
       }
       else {
-         $_SESSION["errormsg"] = "Unable to register!";
-         echo 'Details updated! Excellent.';
+         $_SESSION["successmsg"] = "Successfully registered!";
       }
+      header("Location: /index.php");
    }
 }

@@ -14,6 +14,7 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS post;
 
 CREATE TABLE post (
+   id int(8) NOT NULL AUTO_INCREMENT,
    username nvarchar(126) NOT NULL,
    message text,
    is_private BIT

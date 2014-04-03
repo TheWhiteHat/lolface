@@ -9,14 +9,14 @@ if(!isset($_SESSION["auth"]) || !$_SESSION["auth"]){
 }
 
 $postsSQL = "SELECT * FROM post WHERE NOT (username <> '" . $_SESSION["username"] .
-   "' AND is_private = 1)";
+   "' AND is_private = 1) ORDER BY id DESC";
 
 $posts = getSelect($postsSQL);
 
 view_header("LolFace");
 view_nav($_SESSION["username"]);
 foreach($posts as $post) {
-   view_post($post[0], $post[1]);
+   view_post($post[1], $post[2]);
 }
 view_footer();
 ?>

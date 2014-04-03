@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       else {
          $_SESSION["auth"] = true;
          //$_SESSION["username"] = $authed[0][1];
-         $_SESSION["username"] = $_REQUEST["username"];
+         $_SESSION["username"] = mysql_real_escape_string($_REQUEST["username"]);
          header("Location: /home.php");
       }
    }

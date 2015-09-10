@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                " . $is_private . ")";
    $inserted = insertQuery($postSQL);
    if($inserted === false) {
-      $_SESSION["errormsg"] = "Unable to make post!";
+      $_SESSION["errormsg"] = "Unable to make post! ".$postSQL;
    }
    header("Location: /home.php");
 }

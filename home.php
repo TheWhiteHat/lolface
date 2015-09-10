@@ -16,7 +16,8 @@ $posts = getSelect($postsSQL);
 view_header("LolFace");
 view_nav($_SESSION["username"]);
 foreach($posts as $post) {
-   view_post($post[1], $post[2]);
+   echo "<h3>" . $post[3] . "</h3>";
+   view_post($post[1], $post[2], ord($post[3]) == 1 ? true : false);
 }
 view_footer();
 ?>

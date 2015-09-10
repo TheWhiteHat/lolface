@@ -18,7 +18,6 @@ function view_header($title){
 
        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
        <link href="/static/css/lolface.css" rel="stylesheet">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
      </head>
      <body role="document">
    <?php
@@ -77,6 +76,7 @@ function view_footer(){
    ?>
     </div>
     </div>
+    <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/lolface.js"></script>
   </body>
@@ -86,12 +86,17 @@ function view_footer(){
    unset($_SESSION["successmsg"]);
 }
 
-function view_post($username, $message){
+function view_post($username, $message, $is_private){
    ?>
    <div class="panel panel-default">
       <div class="panel-heading"><strong><?php echo $username; ?></strong></div>
       <div class="panel-body">
          <p><?php echo $message; ?></p>
+	 <?php if($is_private){
+	 ?>
+	 <em>This is a private post. Only you can see this.</em>
+	 <?php
+         }?>
       </div>
    </div>
    <?php
